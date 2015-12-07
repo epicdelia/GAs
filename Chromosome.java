@@ -9,8 +9,6 @@ import java.util.Random;
  * i.e. the gene (the string that represents our target 
  * string) and the fitness (how close the gene is to the target string).
  * 
- * @author Delia Lazarescu 
- * @version 1.0
  */
 public class Chromosome{
 	
