@@ -27,5 +27,34 @@ public class Chromosome{
 
 	public String getGene() {
 		return gene;
-	}
 	
+	
+	public static String [] crossover(String bits[] ){
+	
+		String children[] = new String[2];
+		Random random = new Random();
+		
+		int length1 = bits[1].length();
+		int length2 = bits[2].length();
+		int shorter;
+		
+		if (length1 <= length2){
+			shorter = length1;
+		}
+		else{
+			shorter = length2;
+		}
+		
+		int swap = random.nextInt(shorter);
+		
+		String oneB = bits[1].substring(0, length1 - swap);
+		String oneE = bits[2].substring(length2 - swap, -1);
+		String twoB = bits[1].substring(0,length2 - swap);
+		String twoE = bits[2].substring(length1 - swap, -1);
+		
+		children[1] = oneB + oneE;
+		children[2] = twoB + twoE;
+		
+		return children;
+	}
+}	
