@@ -57,4 +57,36 @@ public class Chromosome{
 		
 		return children;
 	}
+	
+	public void mutate(){
+		this.gene = continuousMutate(this.gene,0,9);
+		//return boundaryMutate(str,0,9);
+	}
+	
+	public String boundaryMutate(String str, int low, int high){
+		int value = low;
+		if(Math.random() > 0.5)
+			value = high;
+		int position = (int)(Math.random()*(str.length()));
+		if(position == str.length())
+			position--;
+				
+		StringBuilder temp = new StringBuilder(str);
+		temp.setCharAt(position, Character.forDigit(value, 10));
+		
+		return temp.toString();
+	}
+	
+	public String continuousMutate(String str, int low, int high){
+		int value = (int)(Math.random()*((high - low) + 1)) + low;
+		int position = (int)(Math.random()*(str.length()));
+		if(position == str.length())
+			position--;
+		
+		StringBuilder temp = new StringBuilder(str);
+		temp.setCharAt(position, Character.forDigit(value, 10));
+		
+		return temp.toString();
+	}
+
 }	
